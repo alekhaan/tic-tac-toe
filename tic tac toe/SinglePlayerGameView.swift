@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SinglePlayerGameView: View {
     @State private var board = Array(repeating: Array(repeating: "", count: 3), count: 3)
-    @State private var currentPlayer = "X"
+    @State private var currentPlayer = "❌"
     @State private var winner = ""
     @Environment(\.presentationMode) var presentationMode
 
@@ -20,24 +20,19 @@ struct SinglePlayerGameView: View {
                 HStack(spacing: 10) {
                     Spacer()
                     ForEach(0..<3) { col in
-                        Button(action: {
+                        SquareButton(text: board[row][col], action: {
                             if board[row][col] == "" && winner.isEmpty {
                                 board[row][col] = currentPlayer
                                 if let result = checkWinner() {
                                     winner = result
                                 } else {
-                                    currentPlayer = currentPlayer == "X" ? "O" : "X"
-                                    if currentPlayer == "O" && winner.isEmpty {
+                                    currentPlayer = currentPlayer == "❌" ? "⭕️" : "❌"
+                                    if currentPlayer == "⭕️" && winner.isEmpty {
                                         performComputerMove()
                                     }
                                 }
                             }
-                        }) {
-                            Text(board[row][col])
-                                .font(.largeTitle)
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                        }
+                        })
                     }
                     Spacer()
                 }
@@ -48,7 +43,7 @@ struct SinglePlayerGameView: View {
         .padding()
         .frame(maxHeight: .infinity)
         .alert(isPresented: .constant(!winner.isEmpty)) {
-            Alert(title: Text(winner == "Ничья" ? "Ничья!" : "Победа!"), message: winner == "Ничья" ? Text("Компьютер хочет еще!"): Text(winner == "X" ? "Вы выиграли!" : "Выиграл компьюетер!"), dismissButton: .default(Text("Ок"), action: {
+            Alert(title: Text(winner == "Ничья" ? "Ничья!" : "Победа!"), message: winner == "Ничья" ? Text("Компьютер хочет еще!"): Text(winner == "❌" ? "Вы выиграли!" : "Выиграл компьюетер!"), dismissButton: .default(Text("Ок"), action: {
                 presentationMode.wrappedValue.dismiss()
             }))
         }
@@ -84,7 +79,7 @@ struct SinglePlayerGameView: View {
                 }
             }
         }
-        let opponentSymbol = currentPlayer == "X" ? "O" : "X"
+        let opponentSymbol = currentPlayer == "❌" ? "⭕️" : "❌"
         var bestMove: (Int, Int)? = nil
         for (row, col) in emptyCells {
             board[row][col] = currentPlayer

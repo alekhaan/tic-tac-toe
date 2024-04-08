@@ -13,6 +13,7 @@
 		462FEB6A2BC2E18300CEBC9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 462FEB692BC2E18300CEBC9B /* Preview Assets.xcassets */; };
 		462FEB722BC2E52000CEBC9B /* SinglePlayerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB712BC2E52000CEBC9B /* SinglePlayerGameView.swift */; };
 		462FEB762BC30E2800CEBC9B /* MultiPlayerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FEB752BC30E2800CEBC9B /* MultiPlayerGameView.swift */; };
+		46B3DE9F2BC4501C00431624 /* SquareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DE9E2BC4501C00431624 /* SquareButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		462FEB6B2BC2E18300CEBC9B /* tic_tac_toe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tic_tac_toe.entitlements; sourceTree = "<group>"; };
 		462FEB712BC2E52000CEBC9B /* SinglePlayerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerGameView.swift; sourceTree = "<group>"; };
 		462FEB752BC30E2800CEBC9B /* MultiPlayerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPlayerGameView.swift; sourceTree = "<group>"; };
+		46B3DE9E2BC4501C00431624 /* SquareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				462FEB622BC2E18200CEBC9B /* tic_tac_toeApp.swift */,
 				462FEB712BC2E52000CEBC9B /* SinglePlayerGameView.swift */,
+				462FEB752BC30E2800CEBC9B /* MultiPlayerGameView.swift */,
+				46B3DE9E2BC4501C00431624 /* SquareButton.swift */,
 				462FEB642BC2E18200CEBC9B /* ContentView.swift */,
 				462FEB662BC2E18300CEBC9B /* Assets.xcassets */,
 				462FEB6B2BC2E18300CEBC9B /* tic_tac_toe.entitlements */,
 				462FEB682BC2E18300CEBC9B /* Preview Content */,
-				462FEB752BC30E2800CEBC9B /* MultiPlayerGameView.swift */,
 			);
 			path = "tic tac toe";
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				462FEB652BC2E18200CEBC9B /* ContentView.swift in Sources */,
 				462FEB762BC30E2800CEBC9B /* MultiPlayerGameView.swift in Sources */,
 				462FEB722BC2E52000CEBC9B /* SinglePlayerGameView.swift in Sources */,
+				46B3DE9F2BC4501C00431624 /* SquareButton.swift in Sources */,
 				462FEB632BC2E18200CEBC9B /* tic_tac_toeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
