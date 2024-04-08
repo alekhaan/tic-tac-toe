@@ -9,32 +9,30 @@ import SwiftUI
 
 struct MultiPlayerGameView: View {
     @State private var board = Array(repeating: Array(repeating: "", count: 3), count: 3)
-    @State private var currentPlayer = "X"
+    @State private var currentPlayer = "❌"
     @State private var winner = ""
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
+            Text("Ходит играющий за \(currentPlayer == "❌" ? "крестики" : "нолики")")
+                .font(.title3)
+                .padding()
             ForEach(0..<3) { row in
                 HStack(spacing: 10) {
                     Spacer()
                     ForEach(0..<3) { col in
-                        Button(action: {
+                        SquareButton(text: board[row][col], action: {
                             if board[row][col] == "" && winner.isEmpty {
                                 board[row][col] = currentPlayer
                                 if let result = checkWinner() {
                                     winner = result
                                 } else {
-                                    currentPlayer = currentPlayer == "X" ? "O" : "X"
+                                    currentPlayer = currentPlayer == "❌" ? "⭕️" : "❌"
                                 }
                             }
-                        }) {
-                            Text(board[row][col])
-                                .font(.largeTitle)
-                                .frame(width: 50, height: 50)
-                                .cornerRadius(10)
-                        }
+                        })
                     }
                     Spacer()
                 }
@@ -45,7 +43,7 @@ struct MultiPlayerGameView: View {
         .padding()
         .frame(maxHeight: .infinity)
         .alert(isPresented: .constant(!winner.isEmpty)) {
-            Alert(title: Text(winner == "Ничья" ? "Ничья!" : "Победа!"), message: winner == "Ничья" ? Text("Ничья"): Text("Выиграли \(winner == "X" ? "крестики" : "нолики")"), dismissButton: .default(Text("Ок"), action: {
+            Alert(title: Text(winner == "Ничья" ? "Ничья!" : "Победа!"), message: winner == "Ничья" ? Text("Еще разок?"): Text("Выиграли \(winner == "❌" ? "крестики" : "нолики")"), dismissButton: .default(Text("Ок"), action: {
                 presentationMode.wrappedValue.dismiss()
             }))
         }
